@@ -1,9 +1,74 @@
+* {
+    --base: #f8fafc;
+    --base-content: #020617;
+    --base-secondary: #475569;
+    --base-tertiary: #e2e8f0;
+}
+
 html, body {
-    min-width: 300px;
+    height: 400px;
+    width: 300px;
     margin: 0px;
 }
 
 #map {
     height: 200px;
     width: 300px;
+}
+
+/* CSS FOR LOCATIONs */
+#location-list {
+    list-style: none;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    margin: 0px;
+    overflow-y: scroll;
+}
+
+.location-item {
+    height: 50px;
+    padding: 5px 10px;
+}
+
+/* isn't that some clever css? */
+.location-item:not(:last-of-type) {
+    border-bottom: 1px solid var(--base-tertiary);
+}
+
+.location-item * {
+    margin: 0px;
+}
+
+.location-item-title {
+    font-size: 20px;
+    color: var(--base-content);
+}
+
+.location-item-address {
+    font-size: 16px;
+    color: var(--base-secondary);
+}
+
+/* CSS FOR FORM */
+#location-form {
+    border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary);
+    padding: 5px 10px 10px;
+}
+
+#location-form * {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* CSS FOR COPYRIGHT */
+#copyright {
+    height: 60px;
+    margin: 0px;
+    padding: 0px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: var(--base-secondary);
 }
