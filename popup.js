@@ -31,3 +31,15 @@ locationInput.addEventListener("change", () => {
 
     // TODO: whenever location changes, run appropriate checks and add to list
 })
+
+function processLocationName() {
+
+}
+
+function processLocationCoordinates() {
+
+}
+
+function processLocationAddress() {
+    
+}
