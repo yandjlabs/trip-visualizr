@@ -1,6 +1,6 @@
 // CODE FOR MAP
 // init leaflet.js map
-const map = L.map('map').setView([33.750746, -84.391830], 13);
+const map = L.map('map').setView([33.750746, -84.391830], 12);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
