@@ -23,6 +23,8 @@ function drawCoordinates() {
 drawCoordinates(); // call this function on build, and whenever list updates
 
 // CODE FOR LOCATION INPUT PROCESSING
+const { convert } = require('geo-coordinates-parser')
+
 // retrieve location input whenever new one submitted
 const locationInput = document.getElementsByClassName("location-form-input")[0];
 locationInput.addEventListener("change", () => {
