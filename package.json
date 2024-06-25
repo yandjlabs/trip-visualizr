@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "browserify": "^17.0.0",
+    "geo-coordinates-parser": "^1.7.3"
+  }
+}
