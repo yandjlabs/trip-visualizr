@@ -7,7 +7,7 @@ module.exports = {
     popup: './src/popup.js'
   },
   output: {
-    filename: 'main.bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
 };
