@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "webpack": "^5.92.1"
-  }
+  },
+  "name": "trip-visualizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yandjlabs/trip-visualizer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yandjlabs/trip-visualizer/issues"
+  },
+  "homepage": "https://github.com/yandjlabs/trip-visualizer#readme",
+  "description": ""
 }
