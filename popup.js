@@ -34,21 +34,50 @@ locationInput.addEventListener("change", () => {
     // TODO: whenever location changes, run appropriate checks and add to list
 })
 
-function processLocationCoordinates(coords) {
-    // parse coords
-        // handle decimal coords
+async function processLocationCoordinates(coords) {
+    coords.trim();
+    const COORDINATES = convert(coords);
 
-        // handle DMS coords
+    const response = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${COORDINATES.decimalLatitude}&lon=${COORDINATES.decimalLongitude}`)
+        .then(response => response.json())
+        .then(response => response.address);
 
-    // reverse geocode coords for address
-        // /reverse api query to nominatim
+    const ADDRESS = Object.values(response).join(', ');
+
+    return {
+        "coordinates": COORDINATES,
+        "address": ADDRESS
+    };
+}
+
+processLocationCoordinates("33.7338° N, 84.3717° W");
+
+function processLocationAddress(address) {
+    // geocode address for coords
+    // /search api query to nominatim
 
     // return coords, address in one object
 }
 
-function processLocationAddress(address) {
-    // geocode address for coords
-        // /search api query to nominatim
+// UTILS (DIRECTLY COPIED AND PASTED FROM STACKOVERFLOW)
+function ParseDMS(input) {
+    var parts = input.split(/[^\d\w\.]+/);
+    var lat = ConvertDMSToDD(parts[0], parts[2], parts[3], parts[4]);
+    var lng = ConvertDMSToDD(parts[5], parts[7], parts[8], parts[9]);
 
-    // return coords, address in one object
+    return {
+        Latitude: lat,
+        Longitude: lng,
+        Position: lat + ',' + lng
+    }
+}
+
+
+function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+    var dd = Number(degrees) + Number(minutes) / 60 + Number(seconds) / (60 * 60);
+
+    if (direction == "S" || direction == "W") {
+        dd = dd * -1;
+    } // Don't do anything for N or E
+    return dd;
 }
