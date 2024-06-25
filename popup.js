@@ -34,14 +34,21 @@ locationInput.addEventListener("change", () => {
     // TODO: whenever location changes, run appropriate checks and add to list
 })
 
-function processLocationName() {
+function processLocationCoordinates(coords) {
+    // parse coords
+        // handle decimal coords
 
+        // handle DMS coords
+
+    // reverse geocode coords for address
+        // /reverse api query to nominatim
+
+    // return coords, address in one object
 }
 
-function processLocationCoordinates() {
+function processLocationAddress(address) {
+    // geocode address for coords
+        // /search api query to nominatim
 
-}
-
-function processLocationAddress() {
-    
+    // return coords, address in one object
 }
