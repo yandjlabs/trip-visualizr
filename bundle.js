@@ -933,14 +933,25 @@ locationInput.addEventListener("change", () => {
 })
 
 async function geocode(query) {
+  // returns array of locations
     const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(response => response.features)
+
+    // for now, retrieve first result (add search functionality later)
+    const name = response[0].properties.name;
+    const coordinates = response[0].geometry.coordinates;
+
+    const result = {
+        'name': name,
+        'coordinates': coordinates
+    }
+
+    return result;
 }
 
-geocode('among us')
-
+// takes string representing coordinate
 async function reverseGeocode(coordinates) {
-    
+
 }
 },{"geo-coordinates-parser":2}]},{},[6]);
