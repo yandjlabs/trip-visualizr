@@ -48,13 +48,28 @@ locationInput.addEventListener("change", async () => {
         }
     }
 
-    drawLocations(); 
+    // after locations updated, update html
+    updateLocationList();
+
+    drawLocations();
     locationInput.value = '';
 })
 
+function updateLocationList() {
+    const locationList = document.getElementById("location-list");
+    const locationListItems = locations.map(location => `
+        <li class="location-item">
+            <h3 class="location-item-title">${location.name}</h3 class="location-item-title">
+            <p class="location-item-address">${location.address}.</p>
+        </li>
+    `).join('');
+
+    locationList.innerHTML = locationListItems;
+}
+
 async function geocode(query) {
-  // returns array of locations
-    const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`)
+    // returns array of locations
+    const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
 
@@ -79,20 +94,20 @@ async function reverseGeocode(coordinates) {
     const converted = convert(coordinates, 5); // add handling of invalid coords later
     const lon = converted.decimalLongitude;
     const lat = converted.decimalLatitude;
-    
+
     // returns array of results
-    const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}`)
+    const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
-    
+
     try {
         // take first result for now
         const addressData = response[0].properties;
 
         const name = addressData.name || null;
         const address = extractAddress(addressData);
-    
-        return({
+
+        return ({
             'name': name,
             'address': address,
             'coordinates': [lon, lat]
@@ -104,7 +119,7 @@ async function reverseGeocode(coordinates) {
 
 // UTILS!
 function extractAddress(input) {
-    // const country = input.countrycode || null; too general, don't use for now
+    // const location = input.locationcode || null; too general, don't use for now
     const state = input.state || null;
     const city = input.city || null;
     const district = input.district || null;
@@ -112,7 +127,7 @@ function extractAddress(input) {
     const locality = input.locality || null;
     const name = input.name || null;
 
-    // TODO: format address depending on country, according to national norms
+    // TODO: format address depending on location, according to national norms
     const addressArray = [name, locality, county, district, city, state].filter(item => item);
     const address = addressArray.join(', ');
 
