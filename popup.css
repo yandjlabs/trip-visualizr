@@ -18,8 +18,9 @@ html, body {
 
 /* CSS FOR FORM */
 #location-form {
-    border-top: 1px solid var(--base-tertiary);
-    border-bottom: 1px solid var(--base-tertiary);
+    /* border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary); */
+    background-color: var(--base-tertiary);
     padding: 5px 10px 10px;
 }
 
@@ -70,4 +71,7 @@ html, body {
     justify-content: center;
     align-items: end;
     color: var(--base-secondary);
+    /* border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary); */
+    background-color: var(--base-tertiary);
 }
