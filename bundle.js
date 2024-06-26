@@ -908,17 +908,24 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // dummy coordinates list
-const coordinates = {
-    'Georgia Aquarium': [33.7575, -84.3897], // aquarium
-    'Coke Company HQ': [33.762573, -84.392586], // coke company hq
-    'Georgia Zoo': [33.7262, -84.3685] // zoo
-}
+let coordinates = [
+    {
+        'name': 'Georgia Aquarium',
+        'address': '225 Baker St NW, Atlanta, GA 30313, USA',
+        'coordinates': [33.7575, -84.3897]
+    },
+    {
+        'name': 'Zoo Atlanta',
+        'address': '800 Cherokee Ave SE, Atlanta, GA 30315, USA',
+        'coordinates': [33.7262, -84.3685]
+    }
+]
 
 // draw pins on map for every coordinate in list
 function drawCoordinates() {
-    for (const location in coordinates) {
-        const marker = L.marker(coordinates[location]);
-        marker.bindPopup(location).openPopup();
+    for (const location of coordinates) {
+        const marker = L.marker(location.coordinates);
+        marker.bindPopup(location.name).openPopup();
         marker.addTo(map);
     }
 }
@@ -927,10 +934,21 @@ drawCoordinates(); // call this function on build, and whenever list updates
 // CODE FOR LOCATION INPUT PROCESSING
 // retrieve location input whenever new one submitted
 const locationInput = document.getElementsByClassName("location-form-input")[0];
-locationInput.addEventListener("change", () => {
-    const locationInputValue = locationInput.value;
+locationInput.addEventListener("change", async () => {
+    const input = locationInput.value;
 
-    // TODO: whenever location changes, run appropriate checks and add to list
+    const coordRegex = /[0-9]+\.[0-9]+.*\s+.*[0-9]+\.[0-9]+/i;
+
+    // if coordinate, reverse geocode
+    if (coordRegex.test(input)) {
+        const location = await reverseGeocode(input);
+        coordinates.push(location);
+    } else { // else if name or address, geocode
+        const location = await geocode(input);
+        coordinates.push(location);
+    }
+
+    drawCoordinates(); 
 })
 
 async function geocode(query) {
@@ -943,6 +961,8 @@ async function geocode(query) {
     const name = response[0].properties.name;
     const address = extractAddress(response[0].properties);
     const coordinates = response[0].geometry.coordinates;
+
+    coordinates.reverse(); // correct photon's odd lat-lon coordinates
 
     const result = {
         'name': name,
@@ -991,6 +1011,7 @@ function extractAddress(input) {
     const locality = input.locality || null;
     const name = input.name || null;
 
+    // TODO: format address depending on country, according to national norms
     const addressArray = [name, locality, county, district, city, state].filter(item => item);
     const address = addressArray.join(', ');
 
