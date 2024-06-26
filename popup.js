@@ -37,14 +37,14 @@ locationInput.addEventListener("change", async () => {
         if (locationNames.includes(location.name)) { // check if location already in list
             return null;
         } else {
-            locations.push(location);
+            locations.unshift(location);
         }
     } else { // else if name or address, geocode
         const location = await geocode(input);
         if (locationNames.includes(location.name)) { // check if location already in list
             return null;
         } else {
-            locations.push(location);
+            locations.unshift(location);
         }
     }
 
