@@ -927,7 +927,6 @@ drawCoordinates(); // call this function on build, and whenever list updates
 const locationInput = document.getElementsByClassName("location-form-input")[0];
 locationInput.addEventListener("change", () => {
     const locationInputValue = locationInput.value;
-    console.log(locationInputValue);
 
     // TODO: whenever location changes, run appropriate checks and add to list
 })
@@ -940,10 +939,12 @@ async function geocode(query) {
 
     // for now, retrieve first result (add search functionality later)
     const name = response[0].properties.name;
+    const address = extractAddress(response[0].properties);
     const coordinates = response[0].geometry.coordinates;
 
     const result = {
         'name': name,
+        'address': address,
         'coordinates': coordinates
     }
 
