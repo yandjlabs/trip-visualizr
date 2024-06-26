@@ -31,7 +31,7 @@ html, body {
 
 /* CSS FOR LOCATIONs */
 #location-list {
-    height: 200px;
+    height: 190px;
     list-style: none;
     padding-inline-start: 0px;
     padding-inline-end: 0px;
@@ -40,7 +40,6 @@ html, body {
 }
 
 .location-item {
-    height: 50px;
     padding: 5px 10px;
 }
 
