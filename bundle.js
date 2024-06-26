@@ -932,9 +932,13 @@ locationInput.addEventListener("change", () => {
     // TODO: whenever location changes, run appropriate checks and add to list
 })
 
-async function geocode(address) {
-
+async function geocode(query) {
+    const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`)
+        .then(response => response.json())
+        .then(response => console.log(response))
 }
+
+geocode('among us')
 
 async function reverseGeocode(coordinates) {
     
