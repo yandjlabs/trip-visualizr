@@ -125,10 +125,11 @@ function extractAddress(input) {
     const district = input.district || null;
     const county = input.county || null;
     const locality = input.locality || null;
-    const name = input.name || null;
+    const street = input.street || null;
+    const housenumber = input.housenumber || null;
 
     // TODO: format address depending on location, according to national norms
-    const addressArray = [name, locality, county, district, city, state].filter(item => item);
+    const addressArray = [housenumber, street, locality, county, district, city, state].filter(item => item);
     const address = addressArray.join(', ');
 
     return address
