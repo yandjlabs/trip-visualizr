@@ -16,8 +16,21 @@ html, body {
     width: 300px;
 }
 
+/* CSS FOR FORM */
+#location-form {
+    border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary);
+    padding: 5px 10px 10px;
+}
+
+#location-form * {
+    margin: 0px;
+    padding: 0px;
+}
+
 /* CSS FOR LOCATIONs */
 #location-list {
+    height: 200px;
     list-style: none;
     padding-inline-start: 0px;
     padding-inline-end: 0px;
@@ -49,24 +62,10 @@ html, body {
     color: var(--base-secondary);
 }
 
-/* CSS FOR FORM */
-#location-form {
-    border-top: 1px solid var(--base-tertiary);
-    border-bottom: 1px solid var(--base-tertiary);
-    padding: 5px 10px 10px;
-}
-
-#location-form * {
-    margin: 0px;
-    padding: 0px;
-}
-
 /* CSS FOR COPYRIGHT */
 #copyright {
-    height: 60px;
     margin: 0px;
-    padding: 0px;
-    padding-bottom: 20px;
+    padding: 10px 0px;
     display: flex;
     justify-content: center;
     align-items: end;
