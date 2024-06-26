@@ -908,28 +908,17 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // dummy coordinates list
-let coordinates = [
-    {
-        'name': 'Georgia Aquarium',
-        'address': '225 Baker St NW, Atlanta, GA 30313, USA',
-        'coordinates': [33.7575, -84.3897]
-    },
-    {
-        'name': 'Zoo Atlanta',
-        'address': '800 Cherokee Ave SE, Atlanta, GA 30315, USA',
-        'coordinates': [33.7262, -84.3685]
-    }
-]
+let locations = [];
 
 // draw pins on map for every coordinate in list
-function drawCoordinates() {
-    for (const location of coordinates) {
+function drawLocations() {
+    for (const location of locations) {
         const marker = L.marker(location.coordinates);
         marker.bindPopup(location.name).openPopup();
         marker.addTo(map);
     }
 }
-drawCoordinates(); // call this function on build, and whenever list updates
+drawLocations(); // call this function on build, and whenever list updates
 
 // CODE FOR LOCATION INPUT PROCESSING
 // retrieve location input whenever new one submitted
@@ -938,17 +927,27 @@ locationInput.addEventListener("change", async () => {
     const input = locationInput.value;
 
     const coordRegex = /[0-9]+\.[0-9]+.*\s+.*[0-9]+\.[0-9]+/i;
+    const locationNames = locations.map(location => location.name);
 
     // if coordinate, reverse geocode
     if (coordRegex.test(input)) {
         const location = await reverseGeocode(input);
-        coordinates.push(location);
+        if (locationNames.includes(location.name)) { // check if location already in list
+            return null;
+        } else {
+            locations.push(location);
+        }
     } else { // else if name or address, geocode
         const location = await geocode(input);
-        coordinates.push(location);
+        if (locationNames.includes(location.name)) { // check if location already in list
+            return null;
+        } else {
+            locations.push(location);
+        }
     }
 
-    drawCoordinates(); 
+    drawLocations(); 
+    locationInput.value = '';
 })
 
 async function geocode(query) {
