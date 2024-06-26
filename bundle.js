@@ -908,16 +908,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // dummy coordinates list
-COORDINATES_LIST = [
-    [33.7575, -84.3897], // aquarium
-    [33.762573, -84.392586], // coke company hq
-    [33.7262, -84.3685] // zoo
-]
+const coordinates = {
+    'Georgia Aquarium': [33.7575, -84.3897], // aquarium
+    'Coke Company HQ': [33.762573, -84.392586], // coke company hq
+    'Georgia Zoo': [33.7262, -84.3685] // zoo
+}
 
 // draw pins on map for every coordinate in list
 function drawCoordinates() {
-    for (coordinate of COORDINATES_LIST) {
-        L.marker(coordinate).addTo(map);
+    for (const location in coordinates) {
+        const marker = L.marker(coordinates[location]);
+        marker.bindPopup(location).openPopup();
+        marker.addTo(map);
     }
 }
 drawCoordinates(); // call this function on build, and whenever list updates
