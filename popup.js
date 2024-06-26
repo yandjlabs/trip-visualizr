@@ -54,5 +54,33 @@ async function geocode(query) {
 
 // takes string representing coordinate
 async function reverseGeocode(coordinates) {
-
+    const converted = convert(coordinates, 5); // add handling of invalid coords later
+    const lon = converted.decimalLongitude;
+    const lat = converted.decimalLatitude;
+    
+    // returns array of results
+    const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}`)
+        .then(response => response.json())
+        .then(response => response.features)
+    
+    try {
+        // take first result for now
+        const addressData = response[0].properties;
+    
+        // const country = addressData.countrycode || null; too general, don't use for now
+        const state = addressData.state || null;
+        const city = addressData.city || null;
+        const district = addressData.district || null;
+        const county = addressData.county || null;
+        const locality = addressData.locality || null;
+        const name = addressData.name || null;
+    
+        const addressArray = [name, locality, county, district, city, state].filter(item => item);
+        const address = addressArray.join(', ');
+    
+        console.log(addressData);
+        console.log(address);
+    } catch {
+        return null;
+    }
 }
