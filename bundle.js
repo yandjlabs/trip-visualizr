@@ -964,22 +964,33 @@ async function reverseGeocode(coordinates) {
     try {
         // take first result for now
         const addressData = response[0].properties;
-    
-        // const country = addressData.countrycode || null; too general, don't use for now
-        const state = addressData.state || null;
-        const city = addressData.city || null;
-        const district = addressData.district || null;
-        const county = addressData.county || null;
-        const locality = addressData.locality || null;
+
         const name = addressData.name || null;
+        const address = extractAddress(addressData);
     
-        const addressArray = [name, locality, county, district, city, state].filter(item => item);
-        const address = addressArray.join(', ');
-    
-        console.log(addressData);
-        console.log(address);
+        return({
+            'name': name,
+            'address': address,
+            'coordinates': [lon, lat]
+        })
     } catch {
         return null;
     }
+}
+
+// UTILS!
+function extractAddress(input) {
+    // const country = input.countrycode || null; too general, don't use for now
+    const state = input.state || null;
+    const city = input.city || null;
+    const district = input.district || null;
+    const county = input.county || null;
+    const locality = input.locality || null;
+    const name = input.name || null;
+
+    const addressArray = [name, locality, county, district, city, state].filter(item => item);
+    const address = addressArray.join(', ');
+
+    return address
 }
 },{"geo-coordinates-parser":2}]},{},[6]);
