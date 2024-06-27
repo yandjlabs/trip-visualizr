@@ -4,6 +4,9 @@ const { convert } = require('geo-coordinates-parser')
 // init leaflet.js map
 const map = L.map('map').setView([33.750746, -84.391830], 12);
 
+// init marker layer
+let markerGroup = L.layerGroup().addTo(map);
+
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>' // DO NOT REMOVE OR WE WILL GET SUED
@@ -14,10 +17,13 @@ let locations = [];
 
 // draw pins on map for every coordinate in list
 function drawLocations() {
+    // clear all markers before redrawing, in case locations deleted
+    markerGroup.clearLayers();
+
     for (const location of locations) {
         const marker = L.marker(location.coordinates);
         marker.bindPopup(location.name).openPopup();
-        marker.addTo(map);
+        marker.addTo(markerGroup);
     }
 }
 drawLocations(); // call this function on build, and whenever list updates
@@ -57,14 +63,26 @@ locationInput.addEventListener("change", async () => {
 
 function updateLocationList() {
     const locationList = document.getElementById("location-list");
-    const locationListItems = locations.map(location => `
+    const locationListItems = locations.map((location, index) => `
         <li class="location-item">
-            <h3 class="location-item-title">${location.name}</h3 class="location-item-title">
+            <h3 class="location-item-title">${location.name}</h3>
             <p class="location-item-address">${location.address}.</p>
+            <button class="location-item-delete" data-index="${index}">🗑</button>
         </li>
     `).join('');
 
     locationList.innerHTML = locationListItems;
+
+    const deleteButtons = document.getElementsByClassName('location-item-delete');
+    for (const button of deleteButtons) {
+        button.addEventListener('click', (event) => {
+            locations.splice(event.target.dataset.index, 1);
+
+            // update ui to reflect new list content
+            updateLocationList();
+            drawLocations();
+        })
+    }
 }
 
 async function geocode(query) {
