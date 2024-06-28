@@ -900,7 +900,7 @@ const { convert } = require('geo-coordinates-parser')
 
 // CODE FOR MAP
 // init leaflet.js map
-const map = L.map('map').setView([33.750746, -84.391830], 12);
+const map = L.map('map').setView([33.750746, -84.391830], 13);
 
 // init marker layer
 let markerGroup = L.layerGroup().addTo(map);
@@ -942,6 +942,7 @@ locationInput.addEventListener("change", async () => {
             return null;
         } else {
             locations.unshift(location);
+            map.panTo(location.coordinates, animate=true, duration=0.3);
         }
     } else { // else if name or address, geocode
         const location = await geocode(input);
@@ -949,6 +950,7 @@ locationInput.addEventListener("change", async () => {
             return null;
         } else {
             locations.unshift(location);
+            map.panTo(location.coordinates, animate=true, duration=0.3);
         }
     }
 
