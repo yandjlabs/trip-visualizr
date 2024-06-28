@@ -52,6 +52,11 @@ html, body {
     margin: 0px;
 }
 
+.location-item-upper {
+    display: flex;
+    justify-content: space-between;
+}
+
 .location-item-title {
     font-size: 20px;
     color: var(--base-content);
@@ -60,6 +65,16 @@ html, body {
 .location-item-address {
     font-size: 16px;
     color: var(--base-secondary);
+}
+
+.location-item-delete {
+    border: none;
+    background: none;
+    display: none;
+}
+
+.location-item:hover .location-item-delete {
+    display: block;
 }
 
 /* CSS FOR COPYRIGHT */

@@ -64,11 +64,13 @@ locationInput.addEventListener("change", async () => {
 function updateLocationList() {
     const locationList = document.getElementById("location-list");
     const locationListItems = locations.map((location, index) => `
-        <li class="location-item">
-            <h3 class="location-item-title">${location.name}</h3>
-            <p class="location-item-address">${location.address}.</p>
-            <button class="location-item-delete" data-index="${index}">🗑</button>
-        </li>
+           <li class="location-item">
+                <div class="location-item-upper">
+                    <h3 class="location-item-title">${location.name}</h3>
+                    <button class="location-item-delete" data-index="${index}">🗑</button>
+                </div>
+                <p class="location-item-address">${location.address}.</p>
+            </li>
     `).join('');
 
     locationList.innerHTML = locationListItems;
