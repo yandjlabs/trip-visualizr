@@ -961,8 +961,9 @@ locationInput.addEventListener("change", async () => {
     locationInput.value = '';
 })
 
+// update list in html according to values in location list
+const locationList = document.getElementById("location-list");
 function updateLocationList() {
-    const locationList = document.getElementById("location-list");
     const locationListItems = locations.map((location, index) => `
            <li class="location-item">
                 <div class="location-item-upper">
@@ -987,6 +988,7 @@ function updateLocationList() {
     }
 }
 
+// takes string representing address/name
 async function geocode(query) {
     // returns array of locations
     const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`) // TODO: handle no results
