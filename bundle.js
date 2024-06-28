@@ -902,6 +902,9 @@ const { convert } = require('geo-coordinates-parser')
 // init leaflet.js map
 const map = L.map('map').setView([33.750746, -84.391830], 13);
 
+// add leaflet fullscreen
+map.addControl(new L.Control.Fullscreen());
+
 // init marker layer
 let markerGroup = L.layerGroup().addTo(map);
 
