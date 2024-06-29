@@ -1,8 +1,10 @@
 * {
     --base: #f8fafc;
-    --base-content: #020617;
-    --base-secondary: #475569;
+    --base-secondary: #f1f5f9;
     --base-tertiary: #e2e8f0;
+
+    --base-content: #020617;
+    --base-content-secondary: #475569;
 }
 
 html, body {
@@ -48,6 +50,10 @@ html, body {
     border-bottom: 1px solid var(--base-tertiary);
 }
 
+.location-item:hover {
+    background-color: var(--base);
+}
+
 .location-item * {
     margin: 0px;
 }
@@ -64,7 +70,7 @@ html, body {
 
 .location-item-address {
     font-size: 16px;
-    color: var(--base-secondary);
+    color: var(--base-content-secondary);
 }
 
 .location-item-delete {
@@ -84,7 +90,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: end;
-    color: var(--base-secondary);
+    color: var(--base-content-secondary);
     /* border-top: 1px solid var(--base-tertiary);
     border-bottom: 1px solid var(--base-tertiary); */
     background-color: var(--base-tertiary);
