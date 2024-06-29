@@ -968,7 +968,7 @@ locationInput.addEventListener("change", async () => {
 const locationList = document.getElementById("location-list");
 function updateLocationList() {
     const locationListItems = locations.map((location, index) => `
-           <li class="location-item">
+           <li class="location-item" data-coordinates="${location.coordinates}">
                 <div class="location-item-upper">
                     <h3 class="location-item-title">${location.name}</h3>
                     <button class="location-item-delete" data-index="${index}">🗑</button>
@@ -987,6 +987,16 @@ function updateLocationList() {
             // update ui to reflect new list content
             updateLocationList();
             drawLocations();
+        })
+    }
+
+    const listItems = document.getElementsByClassName('location-item');
+    for (const item of listItems) {
+        item.addEventListener('click', (event) => {
+            // convert coordinate data from string to array
+            const coordinates = event.currentTarget.dataset.coordinates.split(',').map(Number);
+
+            map.panTo(coordinates, animate=true, duration=0.3);
         })
     }
 }
