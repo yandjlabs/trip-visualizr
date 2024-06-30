@@ -5,6 +5,8 @@
 
     --base-content: #020617;
     --base-content-secondary: #475569;
+
+    --error: #dc2626;
 }
 
 html, body {
@@ -26,9 +28,30 @@ html, body {
     padding: 5px 10px 10px;
 }
 
-#location-form * {
+.location-form-title {
     margin: 0px;
     padding: 0px;
+}
+
+.location-form-error {
+    position: absolute;
+    display: flex;
+    gap: 10px;
+    padding: 4px 10px;
+    top: 258px;
+    left: 0px;
+    color: var(--error);
+    background-color: var(--base-tertiary);
+}
+
+.location-form-error * {
+    padding: 0px;
+    margin: 0px;
+}
+
+.location-form-error-btn {
+    border: none;
+    background: none;
 }
 
 /* CSS FOR LOCATIONs */
