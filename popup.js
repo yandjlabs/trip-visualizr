@@ -44,7 +44,7 @@ locationInput.addEventListener("change", async () => {
     if (coordRegex.test(input)) {
         const location = await reverseGeocode(input);
         if (locationNames.includes(location.name)) { // check if location already in list
-            return null;
+            showError('Location already in list')
         } else {
             locations.unshift(location);
             map.panTo(location.coordinates, animate=true, duration=0.3);
@@ -52,7 +52,7 @@ locationInput.addEventListener("change", async () => {
     } else { // else if name or address, geocode
         const location = await geocode(input);
         if (locationNames.includes(location.name)) { // check if location already in list
-            return null;
+            showError('Location already in list')
         } else {
             locations.unshift(location);
             map.panTo(location.coordinates, animate=true, duration=0.3);
@@ -170,4 +170,18 @@ function extractAddress(input) {
     const address = addressArray.join(', ');
 
     return address
+}
+
+function showError(message) {
+    const error = document.getElementById('location-form-error');
+    const errorText = document.getElementsByClassName('location-form-error-text')[0];
+
+    errorText.innerHTML = message;
+    error.style.display = 'flex';
+}
+
+function hideError() {
+    const error = document.getElementById('location-form-error');
+
+    error.style.display = 'none';
 }
