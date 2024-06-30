@@ -35,7 +35,7 @@ html, body {
 
 #location-form-error {
     position: absolute;
-    display: flex;
+    display: none;
     gap: 10px;
     padding: 4px 10px;
     top: 258px;
