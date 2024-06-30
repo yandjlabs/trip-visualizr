@@ -1016,6 +1016,10 @@ async function geocode(query) {
         .then(response => response.json())
         .then(response => response.features)
 
+    if (!response[0]) {
+        showError('Location does not exist');
+    }
+
     // for now, retrieve first result (add search functionality later)
     const name = response[0].properties.name;
     const address = extractAddress(response[0].properties);
@@ -1043,21 +1047,21 @@ async function reverseGeocode(coordinates) {
         .then(response => response.json())
         .then(response => response.features)
 
-    try {
-        // take first result for now
-        const addressData = response[0].properties;
-
-        const name = addressData.name || null;
-        const address = extractAddress(addressData);
-
-        return ({
-            'name': name,
-            'address': address,
-            'coordinates': [lon, lat]
-        })
-    } catch {
-        return null;
+    if (!response[0]) {
+        showError('Invalid coordinates')
     }
+
+    // take first result for now
+    const addressData = response[0].properties;
+
+    const name = addressData.name || null;
+    const address = extractAddress(addressData);
+
+    return ({
+        'name': name,
+        'address': address,
+        'coordinates': [lon, lat]
+    })
 }
 
 // UTILS!
