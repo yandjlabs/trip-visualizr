@@ -938,6 +938,9 @@ locationInput.addEventListener("change", async () => {
     const coordRegex = /[0-9]+\.[0-9]+.*\s+.*[0-9]+\.[0-9]+/i;
     const locationNames = locations.map(location => location.name);
 
+    // clear errors
+    hideError();
+
     // if coordinate, reverse geocode
     if (coordRegex.test(input)) {
         const location = await reverseGeocode(input);
