@@ -36,7 +36,8 @@ html, body {
 #location-form-error {
     position: absolute;
     display: none;
-    gap: 10px;
+    align-items: center;
+    gap: 5px;
     padding: 4px 10px;
     top: 258px;
     left: 0px;
@@ -50,8 +51,12 @@ html, body {
 }
 
 .location-form-error-btn {
-    border: none;
-    background: none;
+    height: 17px;
+    width: 17px;
+    color: var(--base-content);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* CSS FOR LOCATIONs */
