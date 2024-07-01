@@ -112,7 +112,7 @@ async function geocode(query) {
     }, 2000);
 
     // returns array of locations
-    const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`) // TODO: handle no results
+    const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=5`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
 
@@ -153,7 +153,7 @@ async function reverseGeocode(coordinates) {
     }, 2000);
 
     // returns array of results
-    const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}`) // TODO: handle no results
+    const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}&limit=5`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
 
