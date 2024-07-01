@@ -66,6 +66,7 @@ html, body {
 }
 
 .location-form-loading {
+    display: none;
     height: 20px;
     margin-left: 5px;;
     animation: spin 3s linear infinite;

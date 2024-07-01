@@ -988,7 +988,7 @@ function updateLocationList() {
             // convert coordinate data from string to array
             const coordinates = event.currentTarget.dataset.coordinates.split(',').map(Number);
 
-            map.panTo(coordinates, animate=true, duration=0.3);
+            map.panTo(coordinates, animate = true, duration = 0.3);
         })
     }
 }
@@ -1003,10 +1003,20 @@ errorMessageButton.addEventListener('click', (event) => {
 
 // takes string representing address/name
 async function geocode(query) {
+    // if api call takes over a two seconds, show loading icon
+    const loading = document.getElementsByClassName('location-form-loading')[0];
+    const showLoading = setTimeout(() => {
+        loading.style.display = 'block';
+    }, 2000);
+
     // returns array of locations
     const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=10`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
+
+    // clear loading timer, and hide loading icon once api call finishes
+    clearTimeout(showLoading);
+    loading.style.display = 'none';
 
     if (!response[0]) {
         showError('Location does not exist');
@@ -1034,10 +1044,20 @@ async function reverseGeocode(coordinates) {
     const lon = converted.decimalLongitude;
     const lat = converted.decimalLatitude;
 
+    // if api call takes over a two seconds, show loading icon
+    const loading = document.getElementsByClassName('location-form-loading')[0];
+    const showLoading = setTimeout(() => {
+        loading.style.display = 'block';
+    }, 2000);
+
     // returns array of results
     const response = await fetch(`https://photon.komoot.io/reverse?lon=${lon}&lat=${lat}`) // TODO: handle no results
         .then(response => response.json())
         .then(response => response.features)
+
+    // clear loading timer, and hide loading icon once api call finishes
+    clearTimeout(showLoading);
+    loading.style.display = 'none';
 
     if (!response[0]) {
         showError('Invalid coordinates')
@@ -1090,12 +1110,12 @@ function hideError() {
 
 function handleLocation(location) {
     const locationNames = locations.map(location => location.name);
-    
+
     if (locationNames.includes(location.name)) { // check if location already in list
         showError('Location already in list')
     } else {
         locations.unshift(location);
-        map.panTo(location.coordinates, animate=true, duration=0.3);
+        map.panTo(location.coordinates, animate = true, duration = 0.3);
     }
 }
 },{"geo-coordinates-parser":2}]},{},[6]);
