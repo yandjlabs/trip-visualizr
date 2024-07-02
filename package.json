@@ -4,12 +4,14 @@
   },
   "name": "trip-visualizer",
   "version": "1.0.0",
-  "main": "background.js",
+  "main": "main.js",
   "devDependencies": {
-    "browserify": "^17.0.0"
+    "browserify": "^17.0.0",
+    "electron": "^31.1.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
     "build": "browserify popup.js -o bundle.js"
   },
   "repository": {
