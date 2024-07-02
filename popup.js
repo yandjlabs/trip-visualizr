@@ -73,6 +73,22 @@ function updateLocationList() {
 
     locationList.innerHTML = locationListItems;
 
+    const listItems = document.getElementsByClassName('location-item');
+    for (const item of listItems) {
+        item.addEventListener('click', (event) => {
+            // convert coordinate data from string to array
+            const coordinates = event.currentTarget.dataset.coordinates.split(',').map(Number);
+
+            map.panTo(coordinates, animate = true, duration = 0.3);
+        })
+
+        // prevent list item event from firing when delete button clicked
+        const deleteButton = item.querySelector('.location-item-delete');
+        deleteButton.addEventListener('click', (event) => {
+            event.stopPropagation();
+        })
+    }
+
     const deleteButtons = document.getElementsByClassName('location-item-delete');
     for (const button of deleteButtons) {
         button.addEventListener('click', (event) => {
@@ -81,16 +97,6 @@ function updateLocationList() {
             // update ui to reflect new list content
             updateLocationList();
             drawLocations();
-        })
-    }
-
-    const listItems = document.getElementsByClassName('location-item');
-    for (const item of listItems) {
-        item.addEventListener('click', (event) => {
-            // convert coordinate data from string to array
-            const coordinates = event.currentTarget.dataset.coordinates.split(',').map(Number);
-
-            map.panTo(coordinates, animate = true, duration = 0.3);
         })
     }
 }
