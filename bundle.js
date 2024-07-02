@@ -1044,6 +1044,8 @@ async function reverseGeocode(coordinates) {
     const lon = converted.decimalLongitude;
     const lat = converted.decimalLatitude;
 
+    console.log(lon, lat)
+
     // if api call takes over a two seconds, show loading icon
     const loading = document.getElementsByClassName('location-form-loading')[0];
     const showLoading = setTimeout(() => {
@@ -1072,7 +1074,7 @@ async function reverseGeocode(coordinates) {
     return ({
         'name': name,
         'address': address,
-        'coordinates': [lon, lat]
+        'coordinates': [lat, lon]
     })
 }
 

@@ -174,7 +174,7 @@ async function reverseGeocode(coordinates) {
     return ({
         'name': name,
         'address': address,
-        'coordinates': [lon, lat]
+        'coordinates': [lat, lon]
     })
 }
 
