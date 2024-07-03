@@ -3,7 +3,7 @@ const { app, BrowserWindow } = require('electron')
 const createWindow = () => {
     const win = new BrowserWindow({
         width: 300,
-        height: 515
+        height: 513
     })
 
     win.loadFile('popup.html')

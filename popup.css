@@ -1,4 +1,6 @@
 * {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
     --base: #f8fafc;
     --base-secondary: #f1f5f9;
     --base-tertiary: #e2e8f0;
@@ -13,6 +15,14 @@ html, body {
     height: 400px;
     width: 300px;
     margin: 0px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+p {
+    font-size: 12px;
 }
 
 #map {
@@ -31,6 +41,7 @@ html, body {
 .location-form-title {
     margin: 0px;
     padding: 0px;
+    margin-bottom: 4px;
 }
 
 #location-form-inner {
@@ -105,12 +116,11 @@ html, body {
 }
 
 .location-item-title {
-    font-size: 20px;
+    height: 20px;
     color: var(--base-content);
 }
 
 .location-item-address {
-    font-size: 16px;
     color: var(--base-content-secondary);
 }
 
