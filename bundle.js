@@ -1013,7 +1013,7 @@ async function geocode(query) {
     const loading = document.getElementsByClassName('location-form-loading')[0];
     const showLoading = setTimeout(() => {
         loading.style.display = 'block';
-    }, 2000);
+    }, 500);
 
     // returns array of locations
     const response = await fetch(`https://photon.komoot.io/api/?q=${query}&limit=5`) // TODO: handle no results
