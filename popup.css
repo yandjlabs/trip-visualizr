@@ -116,8 +116,8 @@ p {
 }
 
 .location-item-title {
-    height: 20px;
     color: var(--base-content);
+    margin-bottom: 4px;
 }
 
 .location-item-address {
