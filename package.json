@@ -12,8 +12,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify popup.js -o bundle.js",
     "start": "electron .",
-    "build": "browserify popup.js -o bundle.js"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -26,5 +28,17 @@
     "url": "https://github.com/yandjlabs/trip-visualizer/issues"
   },
   "homepage": "https://github.com/yandjlabs/trip-visualizer#readme",
-  "description": ""
+  "description": "",
+  "build": {
+    "appId": "com.yyshen.trip-visualizer",
+    "win": {
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "icon": "assets/icon.png"
+    },
+    "linux": {
+      "icon": "assets/icon.png"
+    }
+  }
 }
