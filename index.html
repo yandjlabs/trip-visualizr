@@ -21,23 +21,28 @@
         <script src="https://kit.fontawesome.com/a269b14aa4.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="map"></div>
-        <div id="location-form">
-            <h3 class="location-form-title">New location</h3 class="location-item-title">
-            <div id="location-form-inner">
-                <input class="location-form-input" type="text">
-                <button class="location-form-btn">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-                <img class="location-form-loading" src="./assets/loading.png">
+        <header></header>
+        <main>
+            <div id="map"></div>
+            <div id="locations">
+                <div id="location-form">
+                    <h3 class="location-form-title">New location</h3 class="location-item-title">
+                    <div id="location-form-inner">
+                        <input class="location-form-input" type="text">
+                        <button class="location-form-btn">
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <img class="location-form-loading" src="./assets/loading.png">
+                    </div>
+                    <div id="location-form-error">
+                        <p class="location-form-error-text">ERROR: Location does not exist</p>
+                        <button class="location-form-error-btn">x</button>
+                    </div>
+                </div>
+                <ul id="location-list">
+                </ul>
             </div>
-            <div id="location-form-error">
-                <p class="location-form-error-text">ERROR: Location does not exist</p>
-                <button class="location-form-error-btn">x</button>
-            </div>
-        </div>
-        <ul id="location-list">
-        </ul>
+        </main>
         <p id="copyright"></p>
     </body>
     <script src="copyright.js"></script>

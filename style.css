@@ -1,6 +1,7 @@
 * {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
+    /* STYLE VARIABLES */
     --base: #f8fafc;
     --base-secondary: #f1f5f9;
     --base-tertiary: #e2e8f0;
@@ -9,12 +10,22 @@
     --base-content-secondary: #475569;
 
     --error: #dc2626;
+
+    /* STRUCTURAL VARIABLES */
+    --content-height: 500px;
+    --map-width: 650px;
+    --form-width: 350px
 }
 
 html, body {
-    height: 400px;
-    width: 300px;
     margin: 0px;
+}
+
+main {
+    width: 1000px;
+    height: var(--content-height);
+    margin: 0px auto 100px;
+    display: flex;
 }
 
 h3 {
@@ -25,15 +36,27 @@ p {
     font-size: 12px;
 }
 
+/* CSS FOR HEADER */
+header {
+    height: 50px;
+    margin-bottom: 50px;
+}
+
+/* CSS FOR BIG ELEMENTS */
 #map {
-    height: 200px;
-    width: 300px;
+    width: var(--map-width);
+}
+
+#locations {
+    display: flex;
+    flex-direction: column;
 }
 
 /* CSS FOR FORM */
 #location-form {
     /* border-top: 1px solid var(--base-tertiary);
     border-bottom: 1px solid var(--base-tertiary); */
+    width: var(--form-width);
     background-color: var(--base-tertiary);
     padding: 5px 10px 10px;
 }
@@ -88,6 +111,7 @@ p {
     background-color: var(--base-tertiary);
 }
 
+/* ADJUST THIS FOR WEB BEFORE DEPLOYMENT!!! */
 #location-form-error * {
     padding: 0px;
     margin: 0px;
@@ -111,15 +135,17 @@ p {
 
 /* CSS FOR LOCATIONs */
 #location-list {
-    height: 190px;
+    height: 100%;
     list-style: none;
     padding-inline-start: 0px;
     padding-inline-end: 0px;
     margin: 0px;
     overflow-y: scroll;
+    background-color: var(--base);
 }
 
 .location-item {
+    max-width: var(--form-width);
     padding: 5px 10px;
 }
 
