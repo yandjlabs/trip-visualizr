@@ -1,0 +1,183 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    --base: #f8fafc;
+    --base-secondary: #f1f5f9;
+    --base-tertiary: #e2e8f0;
+
+    --base-content: #020617;
+    --base-content-secondary: #475569;
+
+    --error: #dc2626;
+}
+
+html, body {
+    height: 400px;
+    width: 300px;
+    margin: 0px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+p {
+    font-size: 12px;
+}
+
+#map {
+    height: 200px;
+    width: 300px;
+}
+
+/* CSS FOR FORM */
+#location-form {
+    /* border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary); */
+    background-color: var(--base-tertiary);
+    padding: 5px 10px 10px;
+}
+
+.location-form-title {
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 4px;
+}
+
+#location-form-inner {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.location-form-input, .location-form-btn {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    border-radius: 3px;
+}
+
+.location-form-input {
+    height: 20px;
+    width: 250px;
+    border: 1px solid var(--base-content-secondary);
+}
+
+.location-form-btn {
+    height: 25px;
+    width: 25px;
+    margin-left: 3px;
+    border: none;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-form-btn:active {
+    background-color: var(--base-secondary);
+}
+
+#location-form-error {
+    position: absolute;
+    display: none;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    top: 258px;
+    left: 0px;
+    color: var(--error);
+    background-color: var(--base-tertiary);
+}
+
+#location-form-error * {
+    padding: 0px;
+    margin: 0px;
+}
+
+.location-form-error-btn {
+    height: 17px;
+    width: 17px;
+    color: var(--base-content);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.location-form-loading {
+    display: none;
+    height: 20px;
+    margin-left: 5px;;
+    animation: spin 3s linear infinite;
+}
+
+/* CSS FOR LOCATIONs */
+#location-list {
+    height: 190px;
+    list-style: none;
+    padding-inline-start: 0px;
+    padding-inline-end: 0px;
+    margin: 0px;
+    overflow-y: scroll;
+}
+
+.location-item {
+    padding: 5px 10px;
+}
+
+/* isn't that some clever css? */
+.location-item:not(:last-of-type) {
+    border-bottom: 1px solid var(--base-tertiary);
+}
+
+.location-item:hover {
+    background-color: var(--base);
+}
+
+.location-item * {
+    margin: 0px;
+}
+
+.location-item-upper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location-item-title {
+    color: var(--base-content);
+    margin-bottom: 4px;
+}
+
+.location-item-address {
+    color: var(--base-content-secondary);
+}
+
+.location-item-delete {
+    border: none;
+    background: none;
+    display: none;
+}
+
+.location-item:hover .location-item-delete {
+    display: block;
+}
+
+/* CSS FOR COPYRIGHT */
+#copyright {
+    margin: 0px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: var(--base-content-secondary);
+    /* border-top: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-tertiary); */
+    background-color: var(--base-tertiary);
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(360deg);
+    }
+    to {
+        transform:rotate(0deg);
+    }
+}
