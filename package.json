@@ -23,17 +23,5 @@
     "url": "https://github.com/yandjlabs/trip-visualizer/issues"
   },
   "homepage": "https://github.com/yandjlabs/trip-visualizer#readme",
-  "description": "",
-  "build": {
-    "appId": "com.yyshen.trip-visualizer",
-    "win": {
-      "icon": "assets/icon.png"
-    },
-    "mac": {
-      "icon": "assets/icon.png"
-    },
-    "linux": {
-      "icon": "assets/icon.png"
-    }
-  }
+  "description": ""
 }
