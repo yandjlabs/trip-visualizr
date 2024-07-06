@@ -12,10 +12,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "browserify popup.js -o bundle.js",
-    "start": "electron .",
-    "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "build": "browserify popup.js -o bundle.js"
   },
   "repository": {
     "type": "git",
