@@ -9,6 +9,8 @@
     --base-content: #020617;
     --base-content-secondary: #475569;
 
+    --website-base: #fb923c;
+
     --error: #dc2626;
 
     /* STRUCTURAL VARIABLES */
@@ -19,6 +21,7 @@
 
 html, body {
     margin: 0px;
+    background-color: var(--website-base);
 }
 
 main {
@@ -40,6 +43,17 @@ p {
 header {
     height: 50px;
     margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.header-logo-icon {
+    height: 40px;
+}
+
+.header-logo-text {
+
 }
 
 /* CSS FOR BIG ELEMENTS */
