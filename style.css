@@ -2,28 +2,26 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     /* STYLE VARIABLES */
-    --base: #f5f5f5;
-    --base-secondary: #f5f5f5;
-    --base-tertiary: #fb923c;
-
+    --base: #262626;
     --base-content: #f5f5f5;
-    --base-content-secondary: #fafafa;
+    --base-content-dim: #e5e5e5;
+    --base-content-light: #fafafa;
 
-    --website-base: #262626;
+    --primary: #fb923c;
+    --primary-light: #fed7aa;
 
     --error: #dc2626;
-
-    --border-radius: 15px;
 
     /* STRUCTURAL VARIABLES */
     --content-height: 500px;
     --map-width: 650px;
-    --form-width: 350px
+    --form-width: 350px;
+    --border-radius: 10px;
 }
 
 html, body {
     margin: 0px;
-    background-color: var(--website-base);
+    background-color: var(--base);
 }
 
 main {
@@ -50,7 +48,7 @@ header {
 }
 
 .header-logo-text {
-    color: var(--base-content);
+    color: var(--base-content-dim);
 }
 
 .header-logo-icon {
@@ -62,7 +60,7 @@ header {
     text-align: center;
     margin: 0px;
     margin-bottom: 10px;
-    color: var(--base-content);
+    color: var(--base-content-light);
 }
 
 /* CSS FOR BIG ELEMENTS */
@@ -78,10 +76,10 @@ header {
 
 /* CSS FOR FORM */
 #location-form {
-    /* border-top: 1px solid var(--base-tertiary);
-    border-bottom: 1px solid var(--base-tertiary); */
+    /* border-top: 1px solid var(--primary);
+    border-bottom: 1px solid var(--primary); */
     width: var(--form-width);
-    background-color: var(--base-tertiary);
+    background-color: var(--primary);
     padding: 5px 10px 10px;
     border-top-right-radius: var(--border-radius);
     color: var(--base-content);
@@ -91,7 +89,7 @@ header {
     margin: 0px;
     padding: 0px;
     margin-bottom: 4px;
-    color: var(--base-cotent);
+    color: var(--base-content);
 }
 
 #location-form-inner {
@@ -106,25 +104,38 @@ header {
     background-color: var(--base-content);
 }
 
+.location-form-input, .location-form-btn {
+    height: 25px;
+    border: none;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+
 .location-form-input {
-    height: 20px;
     width: 250px;
-    border: 1px solid var(--base-content-secondary);
+    background-color: #fff7ed;
 }
 
 .location-form-btn {
-    height: 25px;
     width: 25px;
     margin-left: 3px;
-    border: none;
-    background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--primary-light);
+}
+
+.location-form-btn:hover {
+    background-color: #fff7ed;
 }
 
 .location-form-btn:active {
-    background-color: var(--base-secondary);
+    background-color: var(--primary-light);
+}
+
+.location-form-btn-icon {
+    height: 18px;
+    filter: invert(62%) sepia(94%) saturate(746%) hue-rotate(331deg) brightness(99%) contrast(99%);
 }
 
 #location-form-error {
@@ -136,7 +147,7 @@ header {
     top: 258px;
     left: 0px;
     color: var(--error);
-    background-color: var(--base-tertiary);
+    background-color: var(--primary);
 }
 
 /* ADJUST THIS FOR WEB BEFORE DEPLOYMENT!!! */
@@ -169,7 +180,7 @@ header {
     padding-inline-end: 0px;
     margin: 0px;
     overflow-y: scroll;
-    background-color: var(--base-content-secondary);
+    background-color: var(--base-content);
     border-bottom-right-radius: var(--border-radius);
 }
 
@@ -180,11 +191,11 @@ header {
 
 /* isn't that some clever css? */
 .location-item:not(:last-of-type) {
-    border-bottom: 1px solid var(--base-tertiary);
+    border-bottom: 1px solid var(--base-content-dim);
 }
 
 .location-item:hover {
-    background-color: var(--base);
+    background-color: var(--base-content);
 }
 
 .location-item * {
@@ -221,12 +232,12 @@ header {
     display: flex;
     justify-content: center;
     align-items: end;
-    color: #e5e5e5;
+    color: var(--base-content-dim)
 }
 
 .copyright-link {
     text-decoration: none;
-    color: var(--base-tertiary);
+    color: var(--primary);
 }
 
 @keyframes spin {
