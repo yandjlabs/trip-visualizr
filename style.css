@@ -275,16 +275,16 @@ header {
     }
 
     .website-title {
-        margin: 0px 10px;
+        display: none;
     }
 
     main {
         width: 100vw;
-        min-height: var(--content-height);
         height: auto;
         flex-direction: column;
         align-items: center;
         padding: 0px;
+        margin: 0px;
     }
 
     #map, #location-form, #location-list {
@@ -294,6 +294,11 @@ header {
     #map {
         width: 100vw;
         height: 250px;
+    }
+
+    #locations {
+        height: 100%;
+        display: block;
     }
 
     #location-form {
@@ -310,17 +315,12 @@ header {
         gap: 4px;
     }
 
-    #locations {
-        height: 200px;
-        display: block;
-    }
-
     .location-form-input {
         width: 425px;
     }
 
-    .location-list {
-        height: 100%;
+    #location-list {
+        height: calc(100vh - 430px);
     }
     
     .location-item {
@@ -328,6 +328,6 @@ header {
     }
 
     #copyright {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 }
