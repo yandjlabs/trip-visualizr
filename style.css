@@ -25,7 +25,7 @@ html, body {
 }
 
 main {
-    width: 1000px;
+    width: min(1000px, 100vw);
     height: var(--content-height);
     margin: 20px auto 15px;
     display: flex;
@@ -61,6 +61,10 @@ header {
     margin: 0px;
     margin-bottom: 10px;
     color: var(--base-content-light);
+}
+
+#website-title-break {
+    display: none;
 }
 
 /* CSS FOR BIG ELEMENTS */
@@ -114,6 +118,8 @@ header {
 .location-form-input {
     width: 250px;
     background-color: #fff7ed;
+    font-size: 14px;
+    padding: 0px 5px;
 }
 
 .location-form-btn {
@@ -246,5 +252,15 @@ header {
     }
     to {
         transform:rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    * {
+        --form-width: 280px;
+    }
+
+    main * {
+        border-radius: 0px !important;
     }
 }
