@@ -103,7 +103,6 @@ function updateLocationList() {
 
 // close error message if button clicked
 const errorMessageButton = document.getElementsByClassName('location-form-error-btn')[0];
-console.log(errorMessageButton)
 
 errorMessageButton.addEventListener('click', (event) => {
     hideError();
