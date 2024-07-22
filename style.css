@@ -83,6 +83,7 @@ header {
     padding: 5px 10px 10px;
     border-top-right-radius: var(--border-radius);
     color: var(--base-content);
+    position: relative;
 }
 
 .location-form-title {
@@ -142,12 +143,12 @@ header {
 
 #location-form-error {
     position: absolute;
+    top: 60px;
+    left: 0;
     display: none;
     align-items: center;
     gap: 5px;
     padding: 4px 10px;
-    top: 258px;
-    left: 0px;
     color: var(--error);
     background-color: var(--primary);
 }
