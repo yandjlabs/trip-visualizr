@@ -1,5 +1,29 @@
-Copyright © 2024 Yang Yi Shen at mrshenyangyi@gmail.com
+/*******************************************************
 
-I swear, if you clone this project or copy it into your 
-code without giving me proper credit, I will knock you 
-out with a roundhouse kick and tear you limb from limb
+Copyright © 2024 YandJLabs at YandJLabs@protonmail.com
+
+This file, and the repository it belongs to, is part of Cat Ears Browser Extension.
+
+Cat Ears Browser Extension and its code cannot be copied, edited, and/or
+
+distributed without the express permission of YandJLabs.
+
+If you have the aforementioned permissions, you must distribute the extension
+
+(and its code) for free, give full credit to the authors, show proof that you 
+
+have the aforementioned permissions, and if any changes are made to the source code, 
+
+send the changes back to YandJLabs@protonmail.com for approval. 
+
+If YandJLabs deems that the changes made to the source code 
+
+are not to their liking, the revisions and or changes must be deleted, and if 
+
+applicable, the repository it is in. In the case that someone copies the code 
+
+and doesn't provide this license, and someone copies it from that person, etc.
+
+all parties are still subject to the license.
+
+*******************************************************/
