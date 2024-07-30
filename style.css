@@ -12,6 +12,8 @@
 
     --error: #dc2626;
 
+    --border-radius: 15px;
+
     /* STRUCTURAL VARIABLES */
     --content-height: 500px;
     --map-width: 650px;
@@ -160,8 +162,8 @@ header {
 }
 
 .location-form-error-btn {
-    height: 17px;
-    width: 17px;
+    height: 20px;
+    width: 20px;
     color: var(--base-content);
     display: flex;
     align-items: center;
