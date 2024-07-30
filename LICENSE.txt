@@ -2,9 +2,9 @@
 
 Copyright © 2024 YandJLabs at YandJLabs@protonmail.com
 
-This file, and the repository it belongs to, is part of Cat Ears Browser Extension.
+This file, and the repository it belongs to, is part of Trip Visualizr.
 
-Cat Ears Browser Extension and its code cannot be copied, edited, and/or
+Trip Visualizr and its code cannot be copied, edited, and/or
 
 distributed without the express permission of YandJLabs.
 
