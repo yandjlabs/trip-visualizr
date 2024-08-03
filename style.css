@@ -127,11 +127,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--primary-light);
 }
 
 .location-form-btn:hover {
-    background-color: #fff7ed;
+    background-color: #fed7aa;
 }
 
 .location-form-btn:active {
