@@ -131,6 +131,7 @@ header {
 
 .location-form-btn:hover {
     background-color: #fed7aa;
+    cursor: pointer;
 }
 
 .location-form-btn:active {
@@ -158,15 +159,17 @@ header {
 #location-form-error * {
     padding: 0px;
     margin: 0px;
+    font-weight: 600;
 }
 
 .location-form-error-btn {
-    height: 20px;
-    width: 20px;
+    text-decoration: underline;
+    color: var(--base);
+}
+
+.location-form-error-btn:hover {
     color: var(--base-content);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
 }
 
 .location-form-loading {

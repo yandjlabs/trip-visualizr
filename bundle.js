@@ -1024,7 +1024,7 @@ async function geocode(query) {
     loading.style.display = 'none';
 
     if (!response[0]) {
-        showError('Location does not exist');
+        showError('ERROR: Location does not exist');
     }
 
     // for now, retrieve first result (add search functionality later)
@@ -1065,7 +1065,7 @@ async function reverseGeocode(coordinates) {
     loading.style.display = 'none';
 
     if (!response[0]) {
-        showError('Invalid coordinates')
+        showError('ERROR: Invalid coordinates')
     }
 
     // take first result for now
@@ -1100,15 +1100,19 @@ function extractAddress(input) {
 }
 
 function showError(message) {
+    const form = document.getElementById('location-form');
     const error = document.getElementById('location-form-error');
     const errorText = document.getElementsByClassName('location-form-error-text')[0];
 
+    form.style.padding = '5px 10px 31px'
     errorText.innerHTML = message;
     error.style.display = 'flex';
 }
 
 function hideError() {
+    const form = document.getElementById('location-form');
     const error = document.getElementById('location-form-error');
+    form.style.padding = '5px 10px 10px'
 
     error.style.display = 'none';
 }
@@ -1117,7 +1121,7 @@ function handleLocation(location) {
     const locationNames = locations.map(location => location.name);
 
     if (locationNames.includes(location.name)) { // check if location already in list
-        showError('Location already in list')
+        showError('ERROR: Location already in list')
     } else {
         locations.unshift(location);
         map.panTo(location.coordinates, animate = true, duration = 0.3);
