@@ -187,6 +187,7 @@ header {
     padding-inline-start: 0px;
     padding-inline-end: 0px;
     margin: 0px;
+    max-width: 370px;
     overflow-y: scroll;
     background-color: var(--base-content);
     border-bottom-right-radius: var(--border-radius);
