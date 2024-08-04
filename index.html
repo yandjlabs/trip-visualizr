@@ -26,6 +26,25 @@
         <!--fontawesome-->
         <script src="https://kit.fontawesome.com/a269b14aa4.js" crossorigin="anonymous"></script>
     </head>
+    <header>
+        <img class="header-logo-icon" src="./assets/icon-rounded.png" />
+        <h3 class="header-logo-text">TripVisualizr</h3>
+    </header>
+    <h1 class="website-title" id="phrase"></h1>
+    <script>
+    const phrases = [
+    "Where to next?",
+    "Your journey starts here.",
+    "Travel smarter, not harder.",
+    "Adventure Awaits!",
+    "Let's get this show on the road!",
+
+    ];
+    function getRandomPhrase() {
+    return phrases [Math.floor(Math.random() * phrases.length)];
+    }
+    document.getElementById("phrase").textContent = getRandomPhrase();
+    </script>
     <body>
         <main>
             <div id="map"></div>
