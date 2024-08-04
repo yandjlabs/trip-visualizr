@@ -235,7 +235,7 @@ header {
 
 /* CSS FOR COPYRIGHT */
 #copyright {
-    margin: 0px;
+    margin-top: -10px;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -330,9 +330,5 @@ header {
     
     .location-item {
         max-width: 100vw;
-    }
-
-    #copyright {
-        margin-top: 10px;
     }
 }
