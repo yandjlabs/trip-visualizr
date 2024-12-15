@@ -1,6 +1,6 @@
-# Trip Visualizer 🗺
+# Trip Visualizr 🗺
 
-A website that allows you to visualize the locations of destinations along your trip with ease. Quickly spot paths to take, what stations to get off at, and whether to walk, bike, take public transportation, etc. 
+A website that allows you to visualize the locations of destinations along your trip with ease. Plot any coordinate, address or tourist site on a map!
 
 ### Technologies used
 
